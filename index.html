@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/public/favicon.svg">
+  <title>Uzum Market</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <div class="header-logo" id="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-bag"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="logo-text">UzumMarket</span>
+        </div>
+        
+        <div class="categories-dropdown">
+          <button class="categories-btn">
+            Categories
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="categories-menu">
+            <!-- Categories will be populated by JavaScript -->
+          </div>
+        </div>
+        
+        <div class="search-container">
+          <div class="search-box">
+            <input type="text" placeholder="Search products..." id="searchInput">
+            <button id="searchBtn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            </button>
+          </div>
+          <div class="search-results" id="searchResults">
+            <!-- Search results will be displayed here -->
+          </div>
+        </div>
+        
+        <div class="header-actions">
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon theme-icon"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+          </button>
+          
+          <button class="wishlist-btn" id="wishlistBtn" aria-label="Wishlist">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3.332.74-4.5 2.05A5.5 5.5 0 0 0 4.5 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            <span class="badge wishlist-count">0</span>
+          </button>
+          
+          <button class="cart-btn" id="cartBtn" aria-label="Cart">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+            <span class="badge cart-count">0</span>
+          </button>
+          
+          <button class="auth-btn" id="authBtn" aria-label="Profile">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </button>
+        </div>
+        
+        <button class="menu-toggle" id="menuToggle">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <div class="logo">UzumMarket</div>
+      <button class="close-menu" id="closeMenu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu-content">
+      <div class="mobile-search">
+        <input type="text" placeholder="Search products..." id="mobileSearchInput">
+        <button id="mobileSearchBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+      </div>
+      <div class="mobile-nav">
+        <h3>Categories</h3>
+        <ul class="mobile-categories">
+          <!-- Categories will be populated by JavaScript -->
+        </ul>
+        <div class="mobile-actions">
+          <a href="#" class="mobile-action-item" id="mobileHome">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Home
+          </a>
+          <a href="#" class="mobile-action-item" id="mobileWishlist">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3.332.74-4.5 2.05A5.5 5.5 0 0 0 4.5 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            Wishlist
+          </a>
+          <a href="#" class="mobile-action-item" id="mobileCart">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+            Cart
+          </a>
+          <a href="#" class="mobile-action-item" id="mobileProfile">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Profile
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Main Content -->
+  <main id="mainContent">
+    <!-- Content will be loaded dynamically by JavaScript -->
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>UzumMarket</h3>
+          <p>Your one-stop shop for all your needs. Quality products at affordable prices.</p>
+          <div class="social-links">
+            <a href="#" class="social-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="social-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="social-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twitter"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#" id="homeLink">Home</a></li>
+            <li><a href="#" id="productsLink">Products</a></li>
+            <li><a href="#" id="categoriesLink">Categories</a></li>
+            <li><a href="#" id="dealsLink">Special Deals</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Customer Service</h3>
+          <ul class="footer-links">
+            <li><a href="#" id="contactLink">Contact Us</a></li>
+            <li><a href="#" id="faqLink">FAQ</a></li>
+            <li><a href="#" id="shippingLink">Shipping Policy</a></li>
+            <li><a href="#" id="refundsLink">Returns & Refunds</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Newsletter</h3>
+          <p>Subscribe to receive updates on new arrivals and special offers.</p>
+          <form id="newsletterForm" class="newsletter-form">
+            <input type="email" placeholder="Your Email" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 UzumMarket. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Modals -->
+  <div class="modal-container" id="authModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Account</h2>
+        <button class="close-modal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+      <div class="modal-tabs">
+        <button class="tab-btn active" data-tab="login">Login</button>
+        <button class="tab-btn" data-tab="register">Register</button>
+      </div>
+      <div class="modal-content">
+        <div class="tab-content active" id="loginTab">
+          <form id="loginForm">
+            <div class="form-group">
+              <label for="loginEmail">Email</label>
+              <input type="email" id="loginEmail" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+              <label for="loginPassword">Password</label>
+              <input type="password" id="loginPassword" placeholder="••••••••" required>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" id="rememberMe">
+              <label for="rememberMe">Remember me</label>
+            </div>
+            <button type="submit" class="btn-primary">Login</button>
+            <p class="form-text">Forgot password? <a href="#" id="forgotPasswordLink">Reset it</a></p>
+          </form>
+        </div>
+        <div class="tab-content" id="registerTab">
+          <form id="registerForm">
+            <div class="form-group">
+              <label for="registerName">Full Name</label>
+              <input type="text" id="registerName" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+              <label for="registerEmail">Email</label>
+              <input type="email" id="registerEmail" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+              <label for="registerPassword">Password</label>
+              <input type="password" id="registerPassword" placeholder="••••••••" required>
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword">Confirm Password</label>
+              <input type="password" id="confirmPassword" placeholder="••••••••" required>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" id="agreeTerms" required>
+              <label for="agreeTerms">I agree to the <a href="#">Terms & Conditions</a></label>
+            </div>
+            <button type="submit" class="btn-primary">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal-container" id="cartModal">
+    <div class="modal cart-modal">
+      <div class="modal-header">
+        <h2>Your Cart</h2>
+        <button class="close-modal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+      <div class="modal-content">
+        <div class="cart-items" id="cartItems">
+          <!-- Cart items will be loaded dynamically -->
+        </div>
+        <div class="cart-summary">
+          <div class="cart-row">
+            <span>Subtotal</span>
+            <span id="cartSubtotal">$0.00</span>
+          </div>
+          <div class="cart-row">
+            <span>Shipping</span>
+            <span id="cartShipping">$0.00</span>
+          </div>
+          <div class="cart-row total">
+            <span>Total</span>
+            <span id="cartTotal">$0.00</span>
+          </div>
+          <button class="btn-primary checkout-btn" id="checkoutBtn">Proceed to Checkout</button>
+          <button class="btn-secondary" id="continueShoppingBtn">Continue Shopping</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal-container" id="productModal">
+    <div class="modal product-modal">
+      <div class="modal-header">
+        <h2>Product Details</h2>
+        <button class="close-modal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+      <div class="modal-content" id="productModalContent">
+        <!-- Product details will be loaded dynamically -->
+      </div>
+    </div>
+  </div>
+  
+  <!-- Toast Notifications -->
+  <div class="toast-container" id="toastContainer">
+    <!-- Toast notifications will be added dynamically -->
+  </div>
+  
+  <!-- Scripts -->
+  <script src="/js/utils.js"></script>
+  <script src="/js/telegram.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/store.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/cart.js"></script>
+  <script src="/js/wishlist.js"></script>
+  <script src="/js/ui.js"></script>
+  <script src="/js/router.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
